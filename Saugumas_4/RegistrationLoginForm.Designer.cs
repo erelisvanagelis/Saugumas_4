@@ -1,7 +1,7 @@
 ﻿
 namespace Saugumas_4
 {
-    partial class RegistrationForm
+    partial class RegistrationLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,10 @@ namespace Saugumas_4
         {
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.registrationButton = new System.Windows.Forms.Button();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -52,15 +53,15 @@ namespace Saugumas_4
             this.nameTextBox.Size = new System.Drawing.Size(152, 26);
             this.nameTextBox.TabIndex = 1;
             // 
-            // button1
+            // registrationButton
             // 
-            this.button1.Location = new System.Drawing.Point(16, 70);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Registruotis";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.registrationButton.Location = new System.Drawing.Point(12, 70);
+            this.registrationButton.Name = "registrationButton";
+            this.registrationButton.Size = new System.Drawing.Size(123, 31);
+            this.registrationButton.TabIndex = 2;
+            this.registrationButton.Text = "Registruotis";
+            this.registrationButton.UseVisualStyleBackColor = true;
+            this.registrationButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // passwordTextBox
             // 
@@ -78,14 +79,25 @@ namespace Saugumas_4
             this.label1.TabIndex = 3;
             this.label1.Text = "Slaptažodis:";
             // 
+            // loginButton
+            // 
+            this.loginButton.Location = new System.Drawing.Point(140, 70);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(123, 31);
+            this.loginButton.TabIndex = 5;
+            this.loginButton.Text = "Prisijungti";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(277, 112);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.registrationButton);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.nameLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -102,8 +114,9 @@ namespace Saugumas_4
 
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button registrationButton;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button loginButton;
     }
 }
