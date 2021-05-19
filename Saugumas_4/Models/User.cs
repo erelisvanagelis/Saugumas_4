@@ -47,6 +47,15 @@ namespace Saugumas_4.Models
             }
         }
 
+        public PasswordEntry GetPasswordEntry(string title)
+        {
+            int index = passwords.FindIndex(x => x.Title == title);
+            if (index == -1)
+                return null;
+
+            return passwords[index];
+        }
+
         public override string ToString()
         {
             string data = $"{nickname}, {accountPassword}\n";

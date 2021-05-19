@@ -40,7 +40,7 @@ namespace Saugumas_4
             // 
             this.label1.Location = new System.Drawing.Point(12, 13);
             // 
-            // textBox3
+            // urlTextBox
             // 
             this.urlTextBox.Location = new System.Drawing.Point(121, 144);
             // 
@@ -52,7 +52,7 @@ namespace Saugumas_4
             // 
             this.label4.Location = new System.Drawing.Point(15, 176);
             // 
-            // richTextBox1
+            // commentTextBox
             // 
             this.commentTextBox.Location = new System.Drawing.Point(121, 173);
             this.commentTextBox.Size = new System.Drawing.Size(276, 81);
@@ -73,7 +73,7 @@ namespace Saugumas_4
             this.addButton.Enabled = false;
             this.addButton.Visible = false;
             // 
-            // textBox2
+            // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(121, 77);
             // 
@@ -125,7 +125,8 @@ namespace Saugumas_4
             this.showButton.TabIndex = 16;
             this.showButton.Text = "Rodyti";
             this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            this.showButton.MouseEnter += new System.EventHandler(this.showButton_MouseEnter);
+            this.showButton.MouseLeave += new System.EventHandler(this.showButton_MouseLeave);
             // 
             // PasswordManagementForm
             // 
