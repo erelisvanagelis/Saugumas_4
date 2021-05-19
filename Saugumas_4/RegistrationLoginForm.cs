@@ -46,7 +46,8 @@ namespace Saugumas_4
                 if (user.GetAccountPassword() != passwordTextBox.Text)
                     throw new Exception("Slaptazodziai nesutampa");
 
-                MessageBox.Show("prisijungta");
+                Form form = new ManagementForm(user);
+                form.ShowDialog();
             }
             catch(Exception exc)
             {

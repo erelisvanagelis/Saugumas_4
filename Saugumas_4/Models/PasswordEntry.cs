@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Saugumas_4.Models
 {
-    class PasswordEntry
+    public class PasswordEntry
     {
         private string title;
         private string password;
