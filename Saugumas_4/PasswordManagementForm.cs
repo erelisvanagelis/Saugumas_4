@@ -1,4 +1,5 @@
-﻿using Saugumas_4.Utilities;
+﻿using Saugumas_4.Models;
+using Saugumas_4.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,11 @@ namespace Saugumas_4
     public partial class PasswordManagementForm : Saugumas_4.PasswordBaseForm
     {
         public PasswordManagementForm()
+        {
+            InitializeComponent();
+        }
+
+        public PasswordManagementForm(User user) : base(user)
         {
             InitializeComponent();
         }

@@ -19,9 +19,10 @@ namespace Saugumas_4.Utilities
             if (data.Length < 2)
                 return user;
 
+            Console.WriteLine(1);
             for (int i = 1; i < data.Length; i++)
             {
-                string[] passwordData = data[0].Split(new string[] { ", " }, StringSplitOptions.None);
+                string[] passwordData = data[i].Split(new string[] { ", " }, StringSplitOptions.None);
                 PasswordEntry passwordEntry = new PasswordEntry(passwordData[0], passwordData[1], passwordData[2], passwordData[3]);
                 user.AddPassword(passwordEntry);
             }

@@ -77,6 +77,7 @@ namespace Saugumas_4
             this.Name = "ManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagementForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManagementForm_FormClosing);
             this.ResumeLayout(false);
 
         }

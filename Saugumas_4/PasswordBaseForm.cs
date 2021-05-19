@@ -28,12 +28,31 @@ namespace Saugumas_4
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                user.AddPassword(new PasswordEntry(
+                    titleTextBox.Text, passwordTextBox.Text, urlTextBox.Text, commentTextBox.Text));
 
+                MessageBox.Show("Pavyko pridėti slaptažodį");
+                ClearFields();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void generationButton_Click(object sender, EventArgs e)
         {
             passwordTextBox.Text = EncryptionTool.GeneratePassword();
+        }
+
+        protected void ClearFields()
+        {
+            titleTextBox.Text = "";
+            passwordTextBox.Text = "";
+            urlTextBox.Text = "";
+            commentTextBox.Text = "";
         }
     }
 }

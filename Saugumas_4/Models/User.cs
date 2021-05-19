@@ -39,6 +39,8 @@ namespace Saugumas_4.Models
 
         public void AddPassword(PasswordEntry password)
         {
+            if (passwords == null)
+                Console.WriteLine("Why u null!?");
             if (password != null)
             {
                 passwords.Add(password);
