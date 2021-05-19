@@ -25,7 +25,7 @@ namespace Saugumas_4
         {
             FileManager fileManager = new FileManager();
             fileManager.WriteAFile(user.GetNickname() + ".txt", user.ToString());
-
+            user = null;
         }
 
         private void addPasswordButton_Click(object sender, EventArgs e)

@@ -21,6 +21,7 @@ namespace Saugumas_4
         public PasswordManagementForm(User user) : base(user)
         {
             InitializeComponent();
+            DisableFields();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace Saugumas_4
                 passwordTextBox.Text = passwordEntry.Password;
                 urlTextBox.Text = passwordEntry.Url;
                 commentTextBox.Text = passwordEntry.Comment;
+                EnableFields();
             }
             catch (Exception exc)
             {
@@ -53,13 +55,41 @@ namespace Saugumas_4
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                user.RemovePassword(passwordEntry.Title);
+                MessageBox.Show("Pavyko ištrintin slaptažodį");
+                
+                ClearFields();
+                DisableFields();
+                passwordEntry = null;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            PasswordEntry pe = new PasswordEntry(
-                    titleTextBox.Text, passwordTextBox.Text, urlTextBox.Text, commentTextBox.Text);
+            try
+            {
+                if (passwordEntry == null)
+                    return;
+
+                PasswordEntry pe = new PasswordEntry(
+                        titleTextBox.Text, passwordTextBox.Text, urlTextBox.Text, commentTextBox.Text);
+                user.UpdatePassword(passwordEntry.Title, pe);
+
+                MessageBox.Show("Pavyko atnaujinti slaptažodį");
+                ClearFields();
+                DisableFields();
+                passwordEntry = null;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void showButton_MouseEnter(object sender, EventArgs e)
@@ -78,11 +108,34 @@ namespace Saugumas_4
             if (passwordEntry == null)
                 return;
 
-            if (passwordEntry.Password != passwordTextBox.Text)
+            if (passwordTextBox.Text != "placeholder")
                 return;
 
             passwordTextBox.Text = passwordEntry.Password;
         }
 
+        private void DisableFields()
+        {
+            passwordTextBox.Enabled = false;
+            urlTextBox.Enabled = false;
+            commentTextBox.Enabled = false;
+            showButton.Enabled = false;
+            copyButton.Enabled = false;
+            generationButton.Enabled = false;
+            deleteButton.Enabled = false;
+            updateButton.Enabled = false;
+        }
+
+        private void EnableFields()
+        {
+            passwordTextBox.Enabled = true;
+            urlTextBox.Enabled = true;
+            commentTextBox.Enabled = true;
+            showButton.Enabled = true;
+            copyButton.Enabled = true;
+            generationButton.Enabled = true;
+            deleteButton.Enabled = true;
+            updateButton.Enabled = true;
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace Saugumas_4.Models
         public void UpdatePassword(string title, PasswordEntry passwordEntry)
         {
             int index = passwords.FindIndex(x => x.Title == title);
-            if (index != -1)
+            if (index == -1)
             {
                 throw new Exception("Nepavyko rasti šio slaptažodžio");
             }
@@ -39,12 +39,18 @@ namespace Saugumas_4.Models
 
         public void AddPassword(PasswordEntry password)
         {
-            if (passwords == null)
-                Console.WriteLine("Why u null!?");
-            if (password != null)
-            {
-                passwords.Add(password);
-            }
+            if (GetPasswordEntry(password.Title) != null)
+                throw new Exception("Toks slaptažodis jau egzistuoja");
+            
+            passwords.Add(password);
+        }
+
+        public void RemovePassword(string title)
+        {
+            PasswordEntry pe = GetPasswordEntry(title);
+            if (pe == null)
+                throw new Exception("Toks slapatažodis neegzistuoja");
+            passwords.Remove(pe);
         }
 
         public PasswordEntry GetPasswordEntry(string title)

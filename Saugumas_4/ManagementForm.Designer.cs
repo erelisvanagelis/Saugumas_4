@@ -50,7 +50,7 @@ namespace Saugumas_4
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(161, 14);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(409, 297);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(409, 309);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // manageButton
@@ -68,7 +68,7 @@ namespace Saugumas_4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 318);
+            this.ClientSize = new System.Drawing.Size(581, 335);
             this.Controls.Add(this.manageButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addPasswordButton);
