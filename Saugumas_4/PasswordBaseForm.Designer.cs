@@ -30,13 +30,13 @@ namespace Saugumas_4
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.urlTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.commentTextBox = new System.Windows.Forms.RichTextBox();
             this.generationButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -50,19 +50,19 @@ namespace Saugumas_4
             this.label1.TabIndex = 0;
             this.label1.Text = "Pavadinimas:";
             // 
-            // textBox1
+            // titleTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 26);
-            this.textBox1.TabIndex = 1;
+            this.titleTextBox.Location = new System.Drawing.Point(121, 10);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(276, 26);
+            this.titleTextBox.TabIndex = 1;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 26);
-            this.textBox2.TabIndex = 3;
+            this.passwordTextBox.Location = new System.Drawing.Point(121, 42);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(276, 26);
+            this.passwordTextBox.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,12 +73,12 @@ namespace Saugumas_4
             this.label2.TabIndex = 2;
             this.label2.Text = "Slaptažodis:";
             // 
-            // textBox3
+            // urlTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(121, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(276, 26);
-            this.textBox3.TabIndex = 5;
+            this.urlTextBox.Location = new System.Drawing.Point(121, 109);
+            this.urlTextBox.Name = "urlTextBox";
+            this.urlTextBox.Size = new System.Drawing.Size(276, 26);
+            this.urlTextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -98,13 +98,13 @@ namespace Saugumas_4
             this.label4.TabIndex = 6;
             this.label4.Text = "Komentaras:";
             // 
-            // richTextBox1
+            // commentTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(121, 141);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(276, 113);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.commentTextBox.Location = new System.Drawing.Point(121, 141);
+            this.commentTextBox.Name = "commentTextBox";
+            this.commentTextBox.Size = new System.Drawing.Size(276, 113);
+            this.commentTextBox.TabIndex = 7;
+            this.commentTextBox.Text = "";
             // 
             // generationButton
             // 
@@ -133,13 +133,13 @@ namespace Saugumas_4
             this.ClientSize = new System.Drawing.Size(409, 297);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.generationButton);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.commentTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.urlTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -153,14 +153,14 @@ namespace Saugumas_4
 
         #endregion
         protected System.Windows.Forms.Label label1;
-        protected System.Windows.Forms.TextBox textBox3;
+        protected System.Windows.Forms.TextBox urlTextBox;
         protected System.Windows.Forms.Label label3;
         protected System.Windows.Forms.Label label4;
-        protected System.Windows.Forms.RichTextBox richTextBox1;
+        protected System.Windows.Forms.RichTextBox commentTextBox;
         protected System.Windows.Forms.Button generationButton;
         protected System.Windows.Forms.Label label2;
         protected System.Windows.Forms.Button addButton;
-        protected System.Windows.Forms.TextBox textBox2;
-        protected System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.TextBox passwordTextBox;
+        protected System.Windows.Forms.TextBox titleTextBox;
     }
 }

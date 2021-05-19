@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Saugumas_4.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,7 @@ namespace Saugumas_4
 
         private void generationButton_Click(object sender, EventArgs e)
         {
-
+            passwordTextBox.Text = EncryptionTool.GeneratePassword();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

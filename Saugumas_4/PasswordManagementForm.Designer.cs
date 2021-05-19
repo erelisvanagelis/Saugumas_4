@@ -42,7 +42,7 @@ namespace Saugumas_4
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(121, 144);
+            this.urlTextBox.Location = new System.Drawing.Point(121, 144);
             // 
             // label3
             // 
@@ -54,8 +54,8 @@ namespace Saugumas_4
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(121, 173);
-            this.richTextBox1.Size = new System.Drawing.Size(276, 81);
+            this.commentTextBox.Location = new System.Drawing.Point(121, 173);
+            this.commentTextBox.Size = new System.Drawing.Size(276, 81);
             // 
             // generationButton
             // 
@@ -75,7 +75,7 @@ namespace Saugumas_4
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 77);
+            this.passwordTextBox.Location = new System.Drawing.Point(121, 77);
             // 
             // copyButton
             // 
@@ -137,15 +137,15 @@ namespace Saugumas_4
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.copyButton);
             this.Name = "PasswordManagementForm";
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.titleTextBox, 0);
+            this.Controls.SetChildIndex(this.passwordTextBox, 0);
             this.Controls.SetChildIndex(this.addButton, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.textBox3, 0);
+            this.Controls.SetChildIndex(this.urlTextBox, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.richTextBox1, 0);
+            this.Controls.SetChildIndex(this.commentTextBox, 0);
             this.Controls.SetChildIndex(this.generationButton, 0);
             this.Controls.SetChildIndex(this.copyButton, 0);
             this.Controls.SetChildIndex(this.searchButton, 0);

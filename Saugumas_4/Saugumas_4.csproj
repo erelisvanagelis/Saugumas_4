@@ -74,6 +74,7 @@
     <Compile Include="PasswordBaseForm.Designer.cs">
       <DependentUpon>PasswordBaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\EncryptionTool.cs" />
     <Compile Include="Utilities\FileManager.cs" />
     <Compile Include="Utilities\UserStringConverter.cs" />
     <EmbeddedResource Include="PasswordManagementForm.resx">

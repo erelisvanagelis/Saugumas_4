@@ -22,15 +22,18 @@ namespace Saugumas_4
 
         private void addPasswordButton_Click(object sender, EventArgs e)
         {
-            //Form test = new testForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
-            Form test = new PasswordManagementForm() {TopLevel = false, FormBorderStyle = FormBorderStyle.None };
-            flowLayoutPanel1.Controls.Add(test);
-            test.Show();
+            flowLayoutPanel1.Controls.Clear();
+            Form form = new PasswordBaseForm() { TopLevel = false, FormBorderStyle = FormBorderStyle.None };
+            flowLayoutPanel1.Controls.Add(form);
+            form.Show();
         }
 
         private void manageButton_Click(object sender, EventArgs e)
         {
-
+            flowLayoutPanel1.Controls.Clear();
+            Form form = new PasswordManagementForm() {TopLevel = false, FormBorderStyle = FormBorderStyle.None };
+            flowLayoutPanel1.Controls.Add(form);
+            form.Show();
         }
     }
 }
