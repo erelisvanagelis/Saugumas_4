@@ -14,6 +14,7 @@ namespace Saugumas_4
 {
     public partial class RegistrationLoginForm : Form
     {
+        private User user;
         public RegistrationLoginForm()
         {
             InitializeComponent();
@@ -24,10 +25,11 @@ namespace Saugumas_4
             try
             {
                 User user = new User(nameTextBox.Text, passwordTextBox.Text);
+                user.SetAccountPassword(BCrypt.Net.BCrypt.HashPassword(user.GetAccountPassword()));
+
                 FileManager fileManager = new FileManager();
-                user.SetAccountPassword(EncryptionTool.Encrypt(user.GetAccountPassword()));
-                string data = EncryptionTool.Encrypt(user.ToString());
-                fileManager.WriteAFile(user.GetNickname() + ".txt", data);
+                fileManager.WriteAFile(StupidNaming.GetPathTxt(user.GetNickname()), user.ToString());
+                FileEncryptionTool.EncryptCombo(StupidNaming.GetPathTxt(user.GetNickname()));
 
                 MessageBox.Show("Pavyko prisiregistruoti");
             }
@@ -43,13 +45,11 @@ namespace Saugumas_4
             try
             {
                 FileManager fileManager = new FileManager();
-                string[] data = fileManager.ReadFile(nameTextBox.Text + ".txt");
-                string userData = EncryptionTool.Decrypt(String.Join("", data));
-                string[] userDataArray = userData.Split(
-                    new[] { "\r\n", "\r", "\n" },StringSplitOptions.None);
-                User user = UserStringConverter.GetStringToUser(userDataArray);
+                FileEncryptionTool.DecryptCombo(StupidNaming.GetPathAes(nameTextBox.Text));
+                string[] data = fileManager.ReadFile(StupidNaming.GetPathTxt(nameTextBox.Text));
+                user = UserStringConverter.GetStringToUser(data);
 
-                if (EncryptionTool.Decrypt(user.GetAccountPassword()) != passwordTextBox.Text)
+                if (BCrypt.Net.BCrypt.Verify(passwordTextBox.Text, user.GetAccountPassword()))
                     throw new Exception("Slaptazodziai nesutampa");
 
                 Form form = new ManagementForm(user);
@@ -57,6 +57,8 @@ namespace Saugumas_4
             }
             catch (Exception exc)
             {
+                if (user != null)
+                    FileEncryptionTool.EncryptCombo(StupidNaming.GetPathTxt(user.GetNickname()));
                 MessageBox.Show(exc.Message);
             }
         }

@@ -11,55 +11,30 @@ namespace Saugumas_4.Utilities
 {
     class FileManager
     {
-        private string directory;
-
-        public FileManager()
+        static FileManager()
         {
-            string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) +"\\data";
+            string path = StupidNaming.Directory;
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            this.directory = path + "\\";
-            Console.WriteLine(directory);
         }
 
-        public FileManager(string directory)
+        public void CreateFile(string path)
         {
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-            this.directory = directory + "\\";
-        }
-
-        public void CreateFile(string name)
-        {
-            string path = directory + name;
-            
             if (File.Exists(path))
                 throw new Exception("Toks naudotojas jau egzistuoja");
 
             File.Create(path);
         }
 
-        public void WriteAFile(string name, string data)
+        public void WriteAFile(string path, string data)
         {
-            string path = directory + name;
             File.WriteAllText(path, data);
         }
 
-        public void Register(User user)
+        public string[] ReadFile(string path)
         {
-            string path = directory + user.GetNickname() + ".txt";
-            if (File.Exists(path))
-                throw new Exception("Toks naudotojas jau egzistuoja");
-            WriteAFile(user.GetNickname() + ".txt", user.ToString());
-        }
-
-        public string[] ReadFile(string name)
-        {
-            string path = directory + name;
             if (!File.Exists(path))
                 throw new Exception("Toks failas/naudotojas neegzistuoja");
 

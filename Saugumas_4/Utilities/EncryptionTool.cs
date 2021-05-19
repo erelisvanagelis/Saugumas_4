@@ -106,7 +106,7 @@ namespace Saugumas_4.Utilities
         public static string GeneratePassword()
         {
             RandomNumberGenerator randomNumberGenerator = RNGCryptoServiceProvider.Create();
-            byte[] data = new byte[32];
+            byte[] data = new byte[128];
             randomNumberGenerator.GetBytes(data);
             return Convert.ToBase64String(data);
         }

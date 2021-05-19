@@ -45,7 +45,7 @@ namespace Saugumas_4
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText("Hello, clipboard");
+            Clipboard.SetText(EncryptionTool.Decrypt(passwordEntry.Password));
         }
 
         private void generationButton_Click(object sender, EventArgs e)
@@ -77,8 +77,17 @@ namespace Saugumas_4
                 if (passwordEntry == null)
                     return;
 
-                PasswordEntry pe = new PasswordEntry(
-                        titleTextBox.Text, passwordTextBox.Text, urlTextBox.Text, commentTextBox.Text);
+                string decrypted = EncryptionTool.Decrypt(passwordEntry.Password);
+                string password = passwordEntry.Password;
+                if (passwordTextBox.Text != password && passwordTextBox.Text != decrypted)
+                {
+                    password = passwordTextBox.Text;
+                    password = EncryptionTool.Encrypt(password);
+                }
+
+
+                    PasswordEntry pe = new PasswordEntry(
+                        titleTextBox.Text, password, urlTextBox.Text, commentTextBox.Text);
                 user.UpdatePassword(passwordEntry.Title, pe);
 
                 MessageBox.Show("Pavyko atnaujinti slaptažodį");
@@ -100,7 +109,8 @@ namespace Saugumas_4
             if (passwordEntry.Password != passwordTextBox.Text)
                 return;
 
-            passwordTextBox.Text = "placeholder";
+            string password = EncryptionTool.Decrypt(passwordEntry.Password);
+            passwordTextBox.Text = password;
         }
 
         private void showButton_MouseLeave(object sender, EventArgs e)
@@ -108,7 +118,8 @@ namespace Saugumas_4
             if (passwordEntry == null)
                 return;
 
-            if (passwordTextBox.Text != "placeholder")
+            string password = EncryptionTool.Decrypt(passwordEntry.Password);
+            if (passwordTextBox.Text != passwordEntry.Password && passwordTextBox.Text != password)
                 return;
 
             passwordTextBox.Text = passwordEntry.Password;

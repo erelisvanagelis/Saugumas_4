@@ -30,8 +30,9 @@ namespace Saugumas_4
         {
             try
             {
+                string password = EncryptionTool.Encrypt(passwordTextBox.Text);
                 user.AddPassword(new PasswordEntry(
-                    titleTextBox.Text, passwordTextBox.Text, urlTextBox.Text, commentTextBox.Text));
+                    titleTextBox.Text, password, urlTextBox.Text, commentTextBox.Text));
 
                 MessageBox.Show("Pavyko pridėti slaptažodį");
                 ClearFields();

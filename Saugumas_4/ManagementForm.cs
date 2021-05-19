@@ -26,8 +26,8 @@ namespace Saugumas_4
             FileManager fileManager = new FileManager();
             string data = user.ToString();
             Console.WriteLine(data);
-            data =  EncryptionTool.Encrypt(data);
-            fileManager.WriteAFile(user.GetNickname() + ".txt", data);
+            fileManager.WriteAFile(StupidNaming.GetPathTxt(user.GetNickname()), data);
+            FileEncryptionTool.EncryptCombo(StupidNaming.GetPathTxt(user.GetNickname()));
             user = null;
         }
 
