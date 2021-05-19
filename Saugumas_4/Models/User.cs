@@ -26,6 +26,10 @@ namespace Saugumas_4.Models
 
         public string GetNickname() => nickname;
         public string GetAccountPassword() => accountPassword;
+        public void SetAccountPassword(string data)
+        {
+            accountPassword = data;
+        }
         public PasswordEntry GetPassword(string title) => passwords.Find(x => x.Title == title);
         public void UpdatePassword(string title, PasswordEntry passwordEntry)
         {

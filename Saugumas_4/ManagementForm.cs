@@ -24,7 +24,10 @@ namespace Saugumas_4
         private void ManagementForm_FormClosing(Object sender, FormClosingEventArgs e)
         {
             FileManager fileManager = new FileManager();
-            fileManager.WriteAFile(user.GetNickname() + ".txt", user.ToString());
+            string data = user.ToString();
+            Console.WriteLine(data);
+            data =  EncryptionTool.Encrypt(data);
+            fileManager.WriteAFile(user.GetNickname() + ".txt", data);
             user = null;
         }
 

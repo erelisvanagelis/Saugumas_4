@@ -25,7 +25,9 @@ namespace Saugumas_4
             {
                 User user = new User(nameTextBox.Text, passwordTextBox.Text);
                 FileManager fileManager = new FileManager();
-                fileManager.Register(user);
+                user.SetAccountPassword(EncryptionTool.Encrypt(user.GetAccountPassword()));
+                string data = EncryptionTool.Encrypt(user.ToString());
+                fileManager.WriteAFile(user.GetNickname() + ".txt", data);
 
                 MessageBox.Show("Pavyko prisiregistruoti");
             }
@@ -42,15 +44,18 @@ namespace Saugumas_4
             {
                 FileManager fileManager = new FileManager();
                 string[] data = fileManager.ReadFile(nameTextBox.Text + ".txt");
-                User user = UserStringConverter.GetStringToUser(data);
-                if (user.GetAccountPassword() != passwordTextBox.Text)
+                string userData = EncryptionTool.Decrypt(String.Join("", data));
+                string[] userDataArray = userData.Split(
+                    new[] { "\r\n", "\r", "\n" },StringSplitOptions.None);
+                User user = UserStringConverter.GetStringToUser(userDataArray);
+
+                if (EncryptionTool.Decrypt(user.GetAccountPassword()) != passwordTextBox.Text)
                     throw new Exception("Slaptazodziai nesutampa");
 
-                Console.WriteLine(user.ToString());
                 Form form = new ManagementForm(user);
                 form.ShowDialog();
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
