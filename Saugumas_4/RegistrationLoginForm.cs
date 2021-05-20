@@ -25,7 +25,8 @@ namespace Saugumas_4
             try
             {
                 User user = new User(nameTextBox.Text, passwordTextBox.Text);
-                user.SetAccountPassword(BCrypt.Net.BCrypt.HashPassword(user.GetAccountPassword()));
+                user.SetAccountPassword(BCrypt.Net.BCrypt.HashPassword(passwordTextBox.Text));
+                Console.WriteLine(user.ToString());
 
                 FileManager fileManager = new FileManager();
                 fileManager.WriteAFile(StupidNaming.GetPathTxt(user.GetNickname()), user.ToString());
@@ -49,7 +50,7 @@ namespace Saugumas_4
                 string[] data = fileManager.ReadFile(StupidNaming.GetPathTxt(nameTextBox.Text));
                 user = UserStringConverter.GetStringToUser(data);
 
-                if (BCrypt.Net.BCrypt.Verify(passwordTextBox.Text, user.GetAccountPassword()))
+                if (!BCrypt.Net.BCrypt.Verify(passwordTextBox.Text, user.GetAccountPassword()))
                     throw new Exception("Slaptazodziai nesutampa");
 
                 Form form = new ManagementForm(user);
